@@ -66,7 +66,7 @@ jobs:
           npm version ${{ env.bump }}
 
           # Update Docker image version in docker-compose
-          sed -i "s|image: \"rdv-app_backend:.*|image: \"rdv-app_backend:$(node -p "require('./package.json').version")\"|" docker-compose.yml
+          sed -i "s|image: \"rdv-app_backend:.*|image: \"rdv-app_backend:$(node -p "require('./package.json').version")\"|" ../docker-compose.yml
 
           # Commit changes
           git add package.json package-lock.json docker-compose.yml
