@@ -76,6 +76,13 @@ jobs:
 
           git tag -a "BACK-END_v$(node -p "require('./package.json').version")" -m "Back-end version $(node -p "require('./package.json').version")"
           git push origin "BACK-END_v$(node -p "require('./package.json').version")"
+
+          git checkout main
+
+          # Resetting changes from back-end
+          git checkout --theirs back-end .
+
+          git commit -m "Copy file from back-end $(node -p "require('./package.json').version")"
         # env:
         #   GH_TOKEN: ${{ secrets.GH_TOKEN }}
 
