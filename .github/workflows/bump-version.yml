@@ -67,7 +67,7 @@ jobs:
 
           cd ..
           # Update Docker image version in docker-compose
-          sed -i "s|image: \"rdv-app_backend:.*|image: \"rdv-app_backend:$(node -p "require('./package.json').version")\"|" docker-compose.yml
+          sed -i "s|image: \"rdv-app_backend:.*|image: \"rdv-app_backend:$(node -p "require('./create-user_backend/package.json').version")\"|" docker-compose.yml
 
           # Commit changes
           git add ./create-user_backend/package.json ./create-user_backend/package-lock.json ./create-user_backend/docker-compose.yml
